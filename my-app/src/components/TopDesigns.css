@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+
+
+
+#editNav {
+    color: #21355b;
+    margin: auto;
+    font-family: 'Yellowtail', cursive;
+    font-size: xx-large;
+}
+
+.editText {
+    margin-bottom: 20%;
+    margin-top: 20%;
+    font-family: 'Yellowtail', cursive;
+}
+
+
+#edit {
+    height: 20%;
+}
+
+#editImage {
+    height: 610px;
+}
