@@ -1,7 +1,6 @@
-
 import React, {useState} from 'react';
 import './Article.css';
-import {Form, Button, Card} from "react-bootstrap";
+import {Form, Button, Card, Row, Col} from "react-bootstrap";
 import axios from "axios";
 
 //(article) == props.article
@@ -13,6 +12,8 @@ function Article({article, setArticles}) {
         body: article.body,
         image: article.image,
     })
+
+
 
 
     const onChangeHandler = (e) => {
@@ -40,6 +41,7 @@ function Article({article, setArticles}) {
         } catch (e) {
             console.log(e)
         }
+        setToggleEdit(false)
 
 
     }
@@ -47,41 +49,37 @@ function Article({article, setArticles}) {
 
     return (
         <div key={article.id}>
+            <form onSubmit={UpdateArticle}>
+                <p> {article.date}</p>
+                <label>
+                    <img src={article.image}/>
+                    <input className="float-start" type="text" name="image" defaultValue={article.image}
+                           disabled={!toggleEdit}
+                           onChange={onChangeHandler}/>
+                </label>
 
-            <Card style={{width: '18rem'}}>
-                <Card.Img variant="top" src="holder.js/100px180"/>
-                <Card.Body>
-                    <form onSubmit={UpdateArticle}>
-                        <label onDoubleClick={() => setToggleEdit(!toggleEdit)}>
-                            Posted by:
-                            <input type="text" name="posted_by" defaultValue={article.posted_by} disabled={!toggleEdit}
-                                   onChange={onChangeHandler}/>
-                        </label>
-                        <label>
-                            Title :
-                            <input type="text" name="title" defaultValue={article.title} disabled={!toggleEdit}
-                                   onChange={onChangeHandler}/>
-                        </label>
-                        <label>
-                            Description :
-                            <input type="text" name="body" defaultValue={article.body} disabled={!toggleEdit}
-                                   onChange={onChangeHandler}/>
-                        </label>
-                        <label>
-                            Image :
-                            <input type="text" name="image" defaultValue={article.image} disabled={!toggleEdit}
-                                   onChange={onChangeHandler}/>
-                        </label>
-                        <img src={article.image}/>
-                        {/*<input type="submit" value="Submit"/>*/}
-                        <p> {article.date}</p>
-                        <button type="submit"> Save Update</button>
-
-                    </form>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card>
-
+                <label onDoubleClick={() => setToggleEdit(!toggleEdit)}>
+                    Posted by:
+                    <input type="text" name="posted_by" defaultValue={article.posted_by}
+                           disabled={!toggleEdit}
+                           onChange={onChangeHandler}/>
+                </label>
+                <label>
+                    Title :
+                    <input type="text" name="title" defaultValue={article.title}
+                           disabled={!toggleEdit}
+                           onChange={onChangeHandler}/>
+                </label>
+                <label>
+                    Description :
+                    <input type="text" name="body" defaultValue={article.body}
+                           disabled={!toggleEdit}
+                           onChange={onChangeHandler}/>
+                </label>
+                {/*<input type="submit" value="Submit"/>*/}
+                <p> {article.date}</p>
+                {toggleEdit && <button type="submit"> Save Update</button>}
+            </form>
 
             <div className="row">
                 <div className="col-md-1">
@@ -93,6 +91,7 @@ function Article({article, setArticles}) {
                     <Button onClick={onDelete} className="btn btn-danger">Delete</Button>
                 </div>
             </div>
+
             <hr/>
         </div>
     )
