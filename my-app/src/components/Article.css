@@ -1,0 +1,106 @@
+.editImage {
+    /*border: 1px solid #ddd;*/
+    border-radius: 4px;
+    width: 200px;
+    height: 200px;
+    padding: 0;
+    margin-left: 200px;
+}
+
+.editImage:hover {
+    box-shadow: 0 0 2px 1px #21355b;
+
+}
+
+.editTitle {
+    border: none;
+    margin-top: 20px;
+    margin-right: 250px;
+    color: #365593;
+
+}
+
+.editTextarea {
+    border: none;
+    margin-right: 200px;
+    color: gray;
+}
+
+.postedByEdit {
+    border: none;
+    margin-left: 950px;
+}
+
+.editDate {
+    margin-right: 570px;
+    font-size: 14px;
+    color: #102144;
+}
+
+
+.updateBtn {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    border: 1px solid #4CAF50;
+    box-sizing: border-box;
+    border-radius: 50px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 29px;
+    text-align: center;
+    background-color: white;
+    color: #4CAF50;
+    width: 110px;
+    margin-left: 785px;
+
+}
+
+.deleteBtn {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    border: 1px solid #fa5c5c;
+    box-sizing: border-box;
+    border-radius: 50px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 29px;
+    text-align: center;
+    background-color: white;
+    color: #fa5c5c;
+    width: 110px;
+    margin-right: 70px;
+}
+
+
+.saveBtn {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    border: 1px solid #008CBA;
+    box-sizing: border-box;
+    border-radius: 50px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 29px;
+    text-align: center;
+    background-color: white;
+    color: #008CBA;
+    width: 110px;
+    margin-left: 420px;
+
+}
+
+.imageInput {
+border-radius: 3%;
+    margin-left: 200px;
+    width: 200px;
+
+}

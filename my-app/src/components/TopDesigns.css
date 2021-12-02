@@ -5,14 +5,14 @@
 #editNav {
     color: #21355b;
     margin: auto;
-    font-family: 'Yellowtail', cursive;
+    font-family: 'Indie Flower', cursive;
     font-size: xx-large;
 }
 
 .editText {
     margin-bottom: 20%;
     margin-top: 20%;
-    font-family: 'Yellowtail', cursive;
+    font-family: 'Indie Flower', cursive;
 }
 
 
@@ -21,5 +21,5 @@
 }
 
 #editImage {
-    height: 610px;
+    height: 650px;
 }

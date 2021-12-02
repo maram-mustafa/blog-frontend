@@ -26,7 +26,7 @@ function App() {
 
     return (
         <>
-            <TopDesigns />
+            <TopDesigns/>
             <CreatePosts articles={articles} setArticles={setArticles}/>
             <ArticleList setArticles={setArticles} articles={articles}/>
 

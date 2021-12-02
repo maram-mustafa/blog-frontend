@@ -14,20 +14,20 @@ function Article({article, setArticles}) {
     })
 
 
-
-
     const onChangeHandler = (e) => {
         setNewData({...newData, [e.target.name]: e.target.value})
         console.log(newData)
     }
 
-    const onDelete = async (id) => {
+    const onDelete = async (index) => {
+        const id = index;
         try {
-            await axios.delete(`http://localhost:5000/delete/${article.id}`);
-            setArticles(potato => potato.filter(p => p.id !== id));
+            await axios.delete(`http://localhost:5000/delete/${id}`);
+            setArticles(prevData => prevData.filter(p => p.id !== id));
         } catch (e) {
             console.log(e)
         }
+
     }
 
     const UpdateArticle = async (e) => {
@@ -48,47 +48,56 @@ function Article({article, setArticles}) {
 
 
     return (
-        <div key={article.id}>
+        <div key={article.id} >
             <form onSubmit={UpdateArticle}>
-                <p> {article.date}</p>
-                <label>
-                    <img src={article.image}/>
-                    <input className="float-start" type="text" name="image" defaultValue={article.image}
-                           disabled={!toggleEdit}
-                           onChange={onChangeHandler}/>
-                </label>
+                <div>
 
-                <label onDoubleClick={() => setToggleEdit(!toggleEdit)}>
-                    Posted by:
-                    <input type="text" name="posted_by" defaultValue={article.posted_by}
-                           disabled={!toggleEdit}
-                           onChange={onChangeHandler}/>
-                </label>
-                <label>
-                    Title :
-                    <input type="text" name="title" defaultValue={article.title}
-                           disabled={!toggleEdit}
-                           onChange={onChangeHandler}/>
-                </label>
-                <label>
-                    Description :
-                    <input type="text" name="body" defaultValue={article.body}
-                           disabled={!toggleEdit}
-                           onChange={onChangeHandler}/>
-                </label>
-                {/*<input type="submit" value="Submit"/>*/}
-                <p> {article.date}</p>
-                {toggleEdit && <button type="submit"> Save Update</button>}
+                    <label onDoubleClick={() => setToggleEdit(!toggleEdit)}>
+                        <input className="postedByEdit" type="text" name="posted_by" defaultValue={article.posted_by}
+                               disabled={!toggleEdit}
+                               onChange={onChangeHandler}/>
+                    </label>
+                </div>
+
+
+                <div className="row d-flex text-center justify-content-md-center editDiv">
+                    <div className="col">
+                        <label>
+                            <img src={newData.image} className="editImage"/>
+                            {toggleEdit && <input className="mt-3 imageInput" type="text" name="image" defaultValue={article.image}
+                                                  disabled={!toggleEdit}
+                                                  onChange={onChangeHandler}/>}
+                        </label>
+                    </div>
+                    <div className="col">
+                        <label>
+                            <input size="50" className="editTitle  mb-2" type="text" name="title"
+                                   defaultValue={article.title}
+                                   disabled={!toggleEdit}
+                                   onChange={onChangeHandler}/>
+                        </label>
+
+                        <label>
+                            <textarea className="editTextarea" rows="5" cols="60" type="text" name="body"
+                                      defaultValue={article.body} disabled={!toggleEdit} onChange={onChangeHandler}/>
+                        </label>
+                        <p className="editDate">  {article.date}🕑</p>
+
+                    </div>
+
+                </div>
+
+                {toggleEdit && <button className="saveBtn" type="submit"> Save Update</button>}
             </form>
 
-            <div className="row">
-                <div className="col-md-1">
-                    <button className="btn btn-primary"
+            <div className="row ">
+                <div className="col d-flex ">
+                    <button className="updateBtn"
                             onClick={() => setToggleEdit(!toggleEdit)}>Update
                     </button>
                 </div>
-                <div className="col">
-                    <Button onClick={onDelete} className="btn btn-danger">Delete</Button>
+                <div className="col d-flex ">
+                    <button onClick={() => onDelete(article.id)} className="deleteBtn">Delete</button>
                 </div>
             </div>
 

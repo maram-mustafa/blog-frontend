@@ -8,7 +8,7 @@ class TopDesigns extends Component {
             <div>
                 <Navbar bg="light">
                     <Container>
-                        <Navbar.Text href="#home" id="editNav">Sweets Blog</Navbar.Text>
+                        <Navbar.Text href="#home" id="editNav">Sugar High Blog</Navbar.Text>
                     </Container>
                 </Navbar>
                 <Carousel id="editSizeCarousel">
@@ -40,7 +40,8 @@ class TopDesigns extends Component {
                         <img
                             id="editImage"
                             className="d-block w-100"
-                            src="https://media.istockphoto.com/photos/home-baking-and-coffee-break-picture-id1311399566?k=20&m=1311399566&s=612x612&w=0&h=eQU2tZnggf6Xnf6gcvvyCsSmjmDHVQj_vScR1BeGGD8="
+                            // src="https://media.istockphoto.com/photos/home-baking-and-coffee-break-picture-id1311399566?k=20&m=1311399566&s=612x612&w=0&h=eQU2tZnggf6Xnf6gcvvyCsSmjmDHVQj_vScR1BeGGD8="
+                            src="https://media.istockphoto.com/photos/homemade-chocolate-brownies-shot-from-above-picture-id1130692246?b=1&k=20&m=1130692246&s=170667a&w=0&h=g1GXUeu7Sdf4I-D9AHc6qBrKTU_ZDuz6Ie33Vsf4z4k="
                             alt="Third slide"
                         />
                         <Carousel.Caption className="editText">
